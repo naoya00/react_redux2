@@ -1,1 +1,3 @@
-alert("helow");
+import React from 'react';
+import ReactDOM from 'react-dom';
+
