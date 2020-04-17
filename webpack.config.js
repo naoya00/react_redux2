@@ -1,6 +1,6 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+ 
 const publidDir = path.join(__dirname, '/public');
 module.exports = [
   {
@@ -13,18 +13,13 @@ module.exports = [
       filename: 'bundle.js',
     },
     module: {
-      rules: [
-        {
-          test: /\.m?js$/,
-          exclude: /(node_modules|bower_components)/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env']
-            }
-          }
-        }
-      ]
+      loaders: [{
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'es2015'],
+        },
+      }],
     },
     resolve: {
       extensions: ['.js', '.jsx'],
